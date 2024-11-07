@@ -5,62 +5,102 @@
         <title>HORARIO</title>
     </head>
     <body>
-        <table border="2px">
-            <tr bgcolor="lightblue">
+        <style>
+            table{
+                border: 2px;
+            }
+            .dias{
+                background-color: aquamarine;
+                font: bold;
+            }
+            .recreo{
+                background-color: greenyellow;
+                font:bold
+            }
+            .endes{
+                background-color: yellow;
+            }
+            .iab{
+                background-color: burlywood;
+            }
+            .lmsgi{
+                background-color: red;
+            }
+            .siinf{
+                background-color: thistle;
+            }
+            .sasp{
+                background-color: peru;
+            }
+            .progr{
+                background-color: purple;
+            }
+            .daspgs{
+                background-color: orange;
+            }
+            .ipe{
+                background-color: gray;
+            }
+            .badat{
+                background-color: indianred;
+            }
+        </style>
+        <table>
+            <tr class="dias">
                 <td><h1> Lunes </h1></td>
                 <td><h1> Martes </h1></td>
                 <td><h1> Miercoles </h1></td>
                 <td><h1> Jueves </h1></td>
                 <td><h1> Viernes </h1></td>
             </tr>
-            <tr bgcolor="lightgreen">
-                <td>ENDES</td>
-                <td>IAB</td>
-                <td>LMSGI</td>
-                <td>SIINF</td>
-                <td>SASP</td>
+            <tr>
+                <td class="endes">ENDES</td>
+                <td class="iab">IAB</td>
+                <td class="lmsgi">LMSGI</td>
+                <td class="siinf">SIINF</td>
+                <td class="sasp">SASP</td>
             </tr>
-            <tr bgcolor="pink">
-                <td>PROGR</td>
-                <td>DASPGS</td>
-                <td>ENDES</td>
-                <td>ENDES</td>
-                <td>IPE</td>
+            <tr>
+                <td class="progr">PROGR</td>
+                <td class="daspgs">DASPGS</td>
+                <td class="endes">ENDES</td>
+                <td class="endes">ENDES</td>
+                <td class="ipe">IPE</td>
             </tr>
-            <tr bgcolor="brown">
-                <td>PROGR</td>
-                <td>IPE</td>
-                <td>SIINF</td>
-                <td>PROGR</td>
-                <td>PROGR</td>
+            <tr>
+                <td class="progr">PROGR</td>
+                <td class="ipe">IPE</td>
+                <td class="siinf">SIINF</td>
+                <td class="progr">PROGR</td>
+                <td class="progr">PROGR</td>
             </tr>
-            <tr bgcolor="yellow">
+            <tr class="recreo">
                 <td><b>Recreo</b></td>
                 <td><b>Recreo</b></td>
                 <td><b>Recreo</b></td>
                 <td><b>Recreo</b></td>
                 <td><b>Recreo</b></td>
             </tr>
-            <tr bgcolor="red">
-                <td>PROGR</td>
-                <td>IPE</td>
-                <td>SIINF</td>
-                <td>PROGR</td>
-                <td>PROGR</td>
+            <tr>
+                <td class="progr">PROGR</td>
+                <td class="ipe">IPE</td>
+                <td class="siinf">SIINF</td>
+                <td class="progr">PROGR</td>
+                <td class="progr">PROGR</td>
             </tr>
-            <tr bgcolor="orange">
-                <td>BADAT</td>
-                <td>BADAT</td>
-                <td>BADAT</td>
-                <td>IPE</td>
-                <td>SIINF</td>
+            <tr>
+                <td class="badat">BADAT</td>
+                <td class="badat">BADAT</td>
+                <td class="badat">BADAT</td>
+                <td class="ipe">IPE</td>
+                <td class="siinf">SIINF</td>
             </tr>
-            <tr bgcolor="purple">
-                <td>IAB</td>
-                <td>LMSGI</td>
-                <td>BADAT</td>
-                <td>LMSGI</td>
-                <td>SIINF</td>
+            <tr>
+                <td class="iab">IAB</td>
+                <td class="lmsgi">LMSGI</td>
+                <td class="badat">BADAT</td>
+                <td class="lmsgi">LMSGI</td>
+                <td class="siinf">SIINF</td>
             </tr>
         </table>
     </body>
