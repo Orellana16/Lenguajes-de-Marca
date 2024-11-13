@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/css" href="./css/styles.css"?>
+ <catalog>
+       <book>
+           <title>Clean Code</title>
+           <author>Robert C. Martin</author>
+           <year>2008</year>
+           <publisher>Prentice Hall</publisher>
+       </book>
+       <br>
+       <book>
+           <title>Los Futbolisimos</title>
+           <author>Roberto Santiago</author>
+           <year>2013</year>
+           <publisher>SM</publisher>
+       </book>
+       </br>
+       <book>
+           <title>Harry Potter</title>
+           <author>J. K. Rowling</author>
+           <year>1997</year>
+           <publisher>Scholastic</publisher>
+       </book>
+       <book>
+           <title>Don Quijote de La Mancha</title>
+           <author>Miguel de Cervantes</author>
+           <year>1605</year>
+           <publisher>Libreria de José G. Fernández</publisher>
+       </book>
+   </catalog>

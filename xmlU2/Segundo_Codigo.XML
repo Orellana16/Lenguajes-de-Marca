@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Hechos_Historicos>
+	<Fecha>
+		<Dia>12</Dia>
+		<Mes>08</Mes>
+		<Año Descripcion="IBM da a conocer el PC">1981</Año>
+	</Fecha>
+	<Fecha>
+		<Dia>04</Dia>
+		<Mes>09</Mes>
+		<Año Descripcion="Se funda Google">1998</Año>
+	</Fecha>
+	<Fecha>
+		<Dia>04</Dia>
+		<Mes>02</Mes>
+		<Año Descripcion="Se funda Facebook">2004</Año>
+	</Fecha>
+</Hechos_Historicos>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<agenda>
+    <contacto>
+        <nombre>Juan</nombre>
+        <apellidos>Pérez García</apellidos>
+        <direccion>Calle Falsa 123, Madrid</direccion>
+        <telefonos>
+            <telefono tipo="casa">912345678</telefono>
+            <telefono tipo="movil">612345678</telefono>
+            <telefono tipo="trabajo">912345679</telefono>
+        </telefonos>
+    </contacto>
+    
+    <contacto>
+        <nombre>María</nombre>
+        <apellidos>Lopez Martínez</apellidos>
+        <direccion>Avenida Siempre Viva 742, Sevilla</direccion>
+        <telefonos>
+            <telefono tipo="casa">954321987</telefono>
+            <telefono tipo="movil">622345678</telefono>
+            <telefono tipo="trabajo">954321988</telefono>
+        </telefonos>
+    </contacto>
+</agenda>
