@@ -70,6 +70,15 @@ header {
     font-weight: 300;
 }
 
+/* Logo */
+img {
+    position: absolute;
+    top: 10px;          
+    left: 10px;         
+    width: 100px;     
+    height: auto;      
+}
+
 /* Contenedor principal de actividades */
 .container {
     display: flex;
@@ -120,4 +129,17 @@ footer {
     font-size: 0.9rem;
     margin-top: auto;
     letter-spacing: 0.5px;
+}
+
+/* Juego y Ubicacion */
+.iframe-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+iframe {
+    width: 48%;
+    height: 300px;
+    border: none;
 }
