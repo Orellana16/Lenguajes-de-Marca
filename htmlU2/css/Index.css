@@ -85,11 +85,18 @@ header {
     font-weight: 300;
 }
 
-/* Logo */
-img {
+.logo {
     position: absolute;
     top: 10px;          
     left: 10px;         
+    width: 100px;     
+    height: auto;      
+}
+
+.extra {
+    position: absolute;
+    top: 10px;          
+    right: 10px;         
     width: 100px;     
     height: auto;      
 }
