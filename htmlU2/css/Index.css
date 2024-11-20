@@ -41,6 +41,21 @@ header {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+.login {
+    padding: 20px;
+    margin: 30px;
+    border: 1px solid #333;
+    border-radius: 12px;
+    background-color: #fff;
+}
+
+.login h2 {
+    font-size: 1.4rem;
+    color: #34495e;
+    margin-bottom: 15px;
+    letter-spacing: 0.5px;
+}
+
 .unidad:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
