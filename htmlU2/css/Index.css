@@ -90,7 +90,12 @@ header {
     top: 10px;          
     left: 10px;         
     width: 100px;     
-    height: auto;      
+    height: auto;  
+    transition: transform 0.3s ease;     
+}
+
+.logo:hover {
+    transform: scale(1.1);
 }
 
 .extra {
@@ -98,7 +103,12 @@ header {
     top: 10px;          
     right: 10px;         
     width: 100px;     
-    height: auto;      
+    height: auto;
+    transition: transform 0.3s ease;    
+}
+
+.extra:hover {
+    transform: scale(1.1);
 }
 
 /* Contenedor principal de actividades */
