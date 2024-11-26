@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="css/formulario.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+        <a href="index.html"><img class="logo" src="Logo.png" alt="Logo"></a>
+        <a href="index.html"><img class="extra" src="Volver.png"></a>
+            <h1>Bienvenido de nuevo</h1>
+            <p>Por favor ingresa tus datos para continuar.</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="login">
+            <h2>Iniciar sesión</h2>
+            <!-- Cambié el id del formulario para coincidir con el script -->
+            <form id="loginForm" method="POST">
+                <label for="username">Usuario:</label>
+                <input type="email" id="username" name="username" placeholder="Ingresa tu usuario" required>
+
+                <br>
+
+                <label for="password">Contraseña:</label>
+                <input type="password" id="password" name="password" placeholder="Ingresa tu contraseña" required>
+
+                <br>
+
+                <label for="date">Fecha de nacimiento:</label>
+                <input type="date" id="date" name="date" placeholder="Ingresa tu fecha de nacimiento" required>
+
+                <br>
+
+                <label>Sexo: </label>
+                    <INPUT type="radio" name="sexo" checked value="1">Hombre
+                    <INPUT type="radio" name="sexo" value="2">Mujer
+
+                <br>
+
+                <select name="CCAA" id="CCAA">
+                    <optgroup label="Comunidad Autónoma">
+                      <option value="andalucia">Andalucía</option>
+                      <option value="murcia">Murcia</option>
+                      <option value="valencia">Valencia</option>
+                      <option value="lamancha">Castilla la Mancha</option>
+                      <option value="extremadura">Extremadura</option>
+                      <option value="madrid">Madrid</option>
+                      <option value="cataluna">Cataluña</option>
+                      <option value="aaragon">Aaragón</option>
+                      <option value="navarra">Navarra</option>
+                      <option value="rioja">La Rioja</option>
+                      <option value="leon">Castilla y León</option>
+                      <option value="vasco">País Vasco</option>
+                      <option value="cantabria">Cantabria</option>
+                      <option value="asturias">Asturias</option>
+                      <option value="galicia">Galicia</option>
+                      <option value="baleares">Islas Baleares</option>
+                      <option value="canarias">Islas Canarias</option>
+                      <option value="melilla">Melilla</option>
+                      <option value="ceuta">Ceuta</option>
+                    </optgroup>
+                </select>
+
+                <br><br>
+
+                <button type="submit">Enviar</button>
+            </form>
+            <br>
+            <p><a href="#">¿Olvidaste tu contraseña?</a></p>
+            <p><a href="Singin.html">Crear una cuenta</a></p>
+        </div>
+    </div>
+
+    <footer>
+        <p>Lenguajes de Marca - David Orellana Gómez</p>
+    </footer>
+
+    <!-- Script de Firebase -->
+    <script type="module">
+        // Importar las funciones necesarias de Firebase
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
+        import { getAuth, signInWithEmailAndPassword, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-analytics.js";
+      
+        // Configuración de tu app en Firebase
+        const firebaseConfig = {
+            apiKey: "AIzaSyCabsbimvmGR9LL4p3_nuGgIgzltqtHsGk",
+            authDomain: "lenguajemarca.firebaseapp.com",
+            projectId: "lenguajemarca",
+            storageBucket: "lenguajemarca.firebasestorage.app",
+            messagingSenderId: "1032860794215",
+            appId: "1:1032860794215:web:4687d78cc2dafaf61443c2",
+            measurementId: "G-XMTM8QDP82"
+        };
+      
+        // Inicializar Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);  // Inicializar Firebase Auth
+        const analytics = getAnalytics(app);  // Opcional: para analíticas
+        
+        // Escuchar el estado de autenticación
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                console.log("Usuario logueado:", user.email);
+            } else {
+                console.log("No hay usuario logueado.");
+            }
+        });
+    </script>
+
+    <!-- Script para manejar el formulario de login -->
+    <script>
+        const loginForm = document.getElementById('loginForm');
+
+        loginForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Obtener los valores del formulario
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Autenticar con Firebase (Email/Password Authentication)
+            signInWithEmailAndPassword(auth, username, password)
+                .then((userCredential) => {
+                    // Inicio de sesión exitoso
+                    const user = userCredential.user;
+                    alert("Bienvenido, " + user.email);
+                    window.location.href = "index.html";
+                })
+                .catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    alert("Error: " + errorMessage);
+                });
+        });
+    </script>
+  
+</body>
+</html>
