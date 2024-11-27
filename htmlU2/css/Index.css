@@ -9,9 +9,6 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, sans-serif;
     background-color: #dfe6e9;
     color: #333;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
 }
 
 a {
@@ -32,6 +29,8 @@ header {
     text-align: center;
 }
 
+/*Estilos Unidades*/
+
 .unidad {
     padding: 20px;
     margin: 30px;
@@ -41,6 +40,24 @@ header {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+.unidad:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.unidad h2 {
+    font-size: 1.4rem;
+    color: #34495e;
+    margin-bottom: 15px;
+    letter-spacing: 0.5px;
+}
+
+.unidad p {
+    font-size: 1rem;
+    color: #5d6d7e;
+    line-height: 1.6;
+}
+
 .container {
     display: flex;
     justify-content: center;
@@ -48,6 +65,8 @@ header {
     width: 100%;
     margin: 20px 0;
 }
+
+/*Formulario Login*/
 
 .login {
     background-color: #ffffff;
@@ -82,12 +101,6 @@ header {
     font-size: 1rem;
 }
 
-.login input:focus {
-    outline: none;
-    border: 1px solid #2e86c1;
-    box-shadow: 0 0 5px rgba(46, 134, 193, 0.5);
-}
-
 .login button {
     background-color: #2e86c1;
     color: #fff;
@@ -104,23 +117,7 @@ header {
     background-color: #1a5276;
 }
 
-.unidad:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-}
-
-.unidad h2 {
-    font-size: 1.4rem;
-    color: #34495e;
-    margin-bottom: 15px;
-    letter-spacing: 0.5px;
-}
-
-.unidad p {
-    font-size: 1rem;
-    color: #5d6d7e;
-    line-height: 1.6;
-}
+/*Contenido del header*/
 
 .header-content h1 {
     font-size: 2.5rem;
@@ -132,6 +129,8 @@ header {
     font-size: 1.2rem;
     font-weight: 300;
 }
+
+/*Boton de logo*/
 
 .logo {
     position: absolute;
@@ -145,6 +144,8 @@ header {
 .logo:hover {
     transform: scale(1.1);
 }
+
+/*Boton de la derecha*/
 
 .extra {
     position: absolute;
@@ -206,8 +207,10 @@ footer {
     color: white;
     text-align: center;
     padding: 20px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
     font-size: 0.9rem;
-    margin-top: auto;
     letter-spacing: 0.5px;
 }
 

@@ -1,0 +1,104 @@
+/* Estilo global */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f7fa; /* Gris claro, similar a interfaces modernas */
+}
+
+/* Encabezado */
+header {
+    background-color: #1e2a47; /* Azul oscuro, sofisticado y profesional */
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+header h1 {
+    font-size: 2.5rem;
+}
+
+header p {
+    font-size: 1.2rem;
+    margin-top: 10px;
+}
+
+/* Navegación */
+nav {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    background-color: #37474f; /* Gris azulado oscuro */
+}
+
+nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: bold;
+    color: #90a4ae; /* Gris claro, ideal para texto */
+    padding: 10px 20px;
+    transition: background-color 0.3s ease;
+}
+
+nav a:hover {
+    background-color: #1e2a47; /* Azul oscuro */
+    color: white;
+}
+
+/* Sección principal */
+main {
+    padding: 20px;
+    margin-bottom: 90px;
+}
+
+section {
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+    color: #1e2a47; /* Azul oscuro */
+}
+
+/* Artículos */
+article {
+    background-color: white;
+    border: 1px solid #d0d0d0; /* Gris suave */
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+article:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+article h3 {
+    color: #1e2a47; /* Azul oscuro */
+    font-size: 1.5rem;
+}
+
+article p {
+    padding: 5px;
+    padding-left: 0px;
+    color: #37474f; /* Gris oscuro */
+}
+
+/* Pie de página */
+footer {
+    background-color: #1e2a47; /* Azul oscuro */
+    color: white;
+    text-align: center;
+    padding: 20px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}

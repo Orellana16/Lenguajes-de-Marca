@@ -27,7 +27,9 @@
 
                 <button type="submit">Crear Cuenta</button>
             </form>
-            <br>
+
+            <br><hr><br>
+
             <p>¿Ya tienes una cuenta? <a href="login.html">Inicia sesión</a></p>
         </div>
     </div>
@@ -35,65 +37,5 @@
     <footer>
         <p>Lenguajes de Marca - David Orellana Gómez</p>
     </footer>
-
-    <!-- Script de Firebase -->
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
-        import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js";
-        import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-analytics.js";
-      
-        // Configuración de tu app en Firebase
-        const firebaseConfig = {
-            apiKey: "AIzaSyCabsbimvmGR9LL4p3_nuGgIgzltqtHsGk",
-            authDomain: "lenguajemarca.firebaseapp.com",
-            projectId: "lenguajemarca",
-            storageBucket: "lenguajemarca.firebasestorage.app",
-            messagingSenderId: "1032860794215",
-            appId: "1:1032860794215:web:4687d78cc2dafaf61443c2",
-            measurementId: "G-XMTM8QDP82"
-        };
-      
-        // Inicializar Firebase
-        const app = initializeApp(firebaseConfig);
-        const auth = getAuth(app);  // Inicializar Firebase Auth
-        const analytics = getAnalytics(app);  // Opcional: para analíticas
-        
-        // Escuchar el estado de autenticación
-        auth.onAuthStateChanged(user => {
-            if (user) {
-                console.log("Usuario logueado:", user.email);
-            } else {
-                console.log("No hay usuario logueado.");
-            }
-        });
-    </script>
-
-    <!-- Script para manejar el formulario de registro -->
-    <script>
-        const signupForm = document.getElementById('signupForm');
-
-        signupForm.addEventListener('submit', function(event) {
-            event.preventDefault();
-
-            // Obtener los valores del formulario
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
-
-            // Crear un nuevo usuario en Firebase
-            createUserWithEmailAndPassword(auth, email, password)
-                .then((userCredential) => {
-                    // Registro exitoso
-                    const user = userCredential.user;
-                    alert("Cuenta creada con éxito, bienvenido " + user.email);
-                    // Redirigir al usuario a la página de login (opcional)
-                    window.location.href = "login.html";
-                })
-                .catch((error) => {
-                    const errorCode = error.code;
-                    const errorMessage = error.message;
-                    alert("Error: " + errorMessage);  // Mostrar el mensaje de error
-                });
-        });
-    </script>
 </body>
 </html>

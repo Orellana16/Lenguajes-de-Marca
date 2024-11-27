@@ -7,14 +7,6 @@
     <link rel="stylesheet" href="css/formulario.css">
 </head>
 <body>
-    <header>
-        <div class="header-content">
-        <a href="index.html"><img class="logo" src="Logo.png" alt="Logo"></a>
-        <a href="index.html"><img class="extra" src="Volver.png"></a>
-            <h1>Bienvenido de nuevo</h1>
-            <p>Por favor ingresa tus datos para continuar.</p>
-        </div>
-    </header>
     
     <div class="container">
         <div class="login">
@@ -36,13 +28,20 @@
 
                 <br>
 
-                <label>Sexo: </label>
-                    <INPUT type="radio" name="sexo" checked value="1">Hombre
-                    <INPUT type="radio" name="sexo" value="2">Mujer
+                <p class="sexo">Sexo:</p>
+
+                <div class="sexoOpciones">
+                    <input type="radio" id="male" name="sexo" value="1" checked>
+                    <label for="male" class="sexoOpcion">Hombre</label>
+            
+                    <input type="radio" id="female" name="sexo" value="2">
+                    <label for="female" class="sexoOpcion">Mujer</label>
+                </div>
 
                 <br>
 
-                <select name="CCAA" id="CCAA">
+                <p>CCAA:</p>
+                <select  name="CCAA" id="CCAA">
                     <optgroup label="Comunidad Autónoma">
                       <option value="andalucia">Andalucía</option>
                       <option value="murcia">Murcia</option>
@@ -75,70 +74,5 @@
             <p><a href="Singin.html">Crear una cuenta</a></p>
         </div>
     </div>
-
-    <footer>
-        <p>Lenguajes de Marca - David Orellana Gómez</p>
-    </footer>
-
-    <!-- Script de Firebase -->
-    <script type="module">
-        // Importar las funciones necesarias de Firebase
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
-        import { getAuth, signInWithEmailAndPassword, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js";
-        import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-analytics.js";
-      
-        // Configuración de tu app en Firebase
-        const firebaseConfig = {
-            apiKey: "AIzaSyCabsbimvmGR9LL4p3_nuGgIgzltqtHsGk",
-            authDomain: "lenguajemarca.firebaseapp.com",
-            projectId: "lenguajemarca",
-            storageBucket: "lenguajemarca.firebasestorage.app",
-            messagingSenderId: "1032860794215",
-            appId: "1:1032860794215:web:4687d78cc2dafaf61443c2",
-            measurementId: "G-XMTM8QDP82"
-        };
-      
-        // Inicializar Firebase
-        const app = initializeApp(firebaseConfig);
-        const auth = getAuth(app);  // Inicializar Firebase Auth
-        const analytics = getAnalytics(app);  // Opcional: para analíticas
-        
-        // Escuchar el estado de autenticación
-        onAuthStateChanged(auth, (user) => {
-            if (user) {
-                console.log("Usuario logueado:", user.email);
-            } else {
-                console.log("No hay usuario logueado.");
-            }
-        });
-    </script>
-
-    <!-- Script para manejar el formulario de login -->
-    <script>
-        const loginForm = document.getElementById('loginForm');
-
-        loginForm.addEventListener('submit', function(event) {
-            event.preventDefault();
-
-            // Obtener los valores del formulario
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
-
-            // Autenticar con Firebase (Email/Password Authentication)
-            signInWithEmailAndPassword(auth, username, password)
-                .then((userCredential) => {
-                    // Inicio de sesión exitoso
-                    const user = userCredential.user;
-                    alert("Bienvenido, " + user.email);
-                    window.location.href = "index.html";
-                })
-                .catch((error) => {
-                    const errorCode = error.code;
-                    const errorMessage = error.message;
-                    alert("Error: " + errorMessage);
-                });
-        });
-    </script>
-  
 </body>
 </html>
