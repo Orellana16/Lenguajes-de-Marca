@@ -1,4 +1,9 @@
 /* Estilos generales */
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 20vh; /* Ajusta según la altura del encabezado */
+}
+
 body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
@@ -23,6 +28,7 @@ body {
     left: 0;
     z-index: 100;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: top 0.5s ease-in-out;    
 }
 
 .header .container {
@@ -31,11 +37,10 @@ body {
     align-items: center;
 }
 
-.logo {
-    font-size: 24px;
-    font-weight: 700;
-    color: #fff;
-    text-decoration: none;
+img {
+    height: 60px; /* Ajusta el tamaño del logo */
+    width: auto;
+    border-radius: 5px;
 }
 
 .nav-list {
@@ -53,7 +58,7 @@ body {
     font-weight: 600;
     padding: 6px;
     border-radius: 5px;
-    transition: all 0.3s;
+    transition: all 1.0s;
 }
 
 .nav-list li a:hover {
@@ -104,7 +109,7 @@ body {
     color: white;
     text-decoration: none;
     border-radius: 5px;
-    transition: all 0.3s ease;
+    transition: all 1.0s ease;
 }
 
 .btn:hover {
@@ -159,7 +164,7 @@ body {
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s;
+    transition: transform 1.0s;
 }
 
 .team-member img {
@@ -210,7 +215,7 @@ body {
 
 /* Contacto */
 .contact {
-    background-color: #c8f5c8;
+    background-color: #9efa9e;
     padding: 48px 0;
 }
 
@@ -238,11 +243,11 @@ body {
     border-radius: 5px;
     cursor: pointer;
     font-size: 18px;
-    transition: background-color 0.3s;
+    transition: all 1.0s;
 }
 
 .contact-form button:hover {
-    background-color: #9efa9e;
+    background-color: #6d9eeb;
 }
 
 /* Pie de página */
@@ -264,18 +269,18 @@ body {
 .footer-links li a {
     color: #fff;
     text-decoration: none;
-    transition: color 0.3s;
+    transition: all 1.0s;
 }
 
 .footer-links li a:hover {
-    color: #9efa9e;
+    color: #2c9e2c;
 }
 
 .social-media a {
     color: #fff;
     margin: 0 8px;
     font-size: 24px;
-    transition: color 0.3s;
+    transition: all 1.0s;
 }
 
 .social-media a:hover {
