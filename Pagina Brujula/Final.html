@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brújula Social</title>
+    <link rel="stylesheet" href="Final.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@600&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <img src="Logo mini.png" alt="Brújula Social">
+        </div>
+    </header>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const header = document.querySelector(".header");
+            const hero = document.querySelector(".hero");
+
+            function toggleHeader() {
+                const heroBottom = hero.getBoundingClientRect().bottom;
+                if (heroBottom > 0) {
+                    header.style.top = "-100px"; // Oculta el header
+                } else {
+                    header.style.top = "0"; // Muestra el header
+                }
+            }
+
+            window.addEventListener("scroll", toggleHeader);
+            toggleHeader(); // Llamar la función al cargar la página
+        });
+    </script>
+
+    <main>
+        <section class="hero">
+            <video src="https://carontestudio.com/img/f4.mp4" autoplay="true" muted="true" loop="true" poster="https://carontestudio.com/img/contacto.jpg"></video>
+            <div class="hero-overlay">
+                <h1>BRÚJULA GABINETE SOCIOEDUCATIVO Y PSICOLÓGICO</h1>
+                <p>"Disfruta de los avances de toda persona que lucha, ve cómo repercuten positivamente en la unidad familiar,</p>
+                <p>y comprende que con paciencia, constancia y trabajo se logran grandes cosas."</p>
+                <a href="" class="btn">Únete al Equipo</a>
+                <a href="" class="btn">Consigue Nuestros Servicios</a>
+            </div>
+        </section>
+
+        <nav>
+            <ul class="nav-list">
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#about">Qué Ofrecemos</a></li>
+                <li><a href="#services">Servicios</a></li>
+                <li><a href="#activities">Actividades</a></li>
+                <li><a href="#sessions">Sesiones</a></li>
+                <li><a href="#faq">Preguntas Frecuentes</a></li>
+                <li><a href="#testimonials">Testimonios</a></li>
+                <li><a href="#contact">Contacto</a></li>
+            </ul>
+        </nav>
+
+        <section class="about" id="about">
+            <div class="container">
+                <h2 class="section-title">Qué Ofrecemos</h2>
+                <p>En Brújula Social, ofrecemos atención personalizada, adaptada a las necesidades psicológicas, sociales y emocionales tanto de adultos como de menores.</p>
+                <h3>Podemos Ayudarte</h3>
+                <p>TEA, hiperactividad, TDAH, desfase madurativo, trastorno específico del lenguaje (TEL), TGD, falta de atención, dislexia, superar una situación de crisis emocional, pensamientos negativos, etc...</p>
+                <p>Nuestro equipo de profesionales trabaja en coordinación con la familia, profesorado y equipos de orientación educativa.</p>
+                <h3>Nuestro Equipo</h3>
+                <div class="team">
+                    <div class="team-member">
+                        <img src="Andrea.png" alt="Andrea González">
+                        <h4>ANDREA GONZÁLEZ</h4>
+                        <p>AUDICIÓN Y LENGUAJE</p>
+                    </div>
+                    <div class="team-member">
+                        <img src="" alt="Luis">
+                        <h4>LUIS</h4>
+                        <p>Luis</p>
+                    </div>
+                    <div class="team-member">
+                        <img src="Macarena.jpg" alt="Macarena Coronil Pérez">
+                        <h4>MACARENA CORONIL PÉREZ</h4>
+                        <p>COORDINADORA Y PRESIDENTA</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="services" id="services">
+            <div class="container">
+                <h2 class="section-title">Servicios</h2>
+                <p>Ofrecemos una amplia gama de servicios para cubrir las necesidades de nuestros clientes:</p>
+                <ul>
+                    <li>Evaluación psicológica y educativa.</li>
+                    <li>Intervención individual y grupal.</li>
+                    <li>Terapia familiar.</li>
+                    <li>Talleres y cursos de formación.</li>
+                    <li>Asesoramiento a familias y educadores.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="activities" id="activities">
+            <div class="container">
+                <h2 class="section-title">Actividades</h2>
+                <p>Organizamos diversas actividades para fomentar el desarrollo y la integración social:</p>
+                <ul>
+                    <li>Talleres de habilidades sociales.</li>
+                    <li>Actividades de ocio inclusivo.</li>
+                    <li>Programas de estimulación cognitiva.</li>
+                    <li>Actividades de relajación y mindfulness.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="sessions" id="sessions">
+            <div class="container">
+                <h2 class="section-title">Sesiones</h2>
+                <p>Nuestras sesiones están diseñadas para adaptarse a las necesidades individuales de cada cliente:</p>
+                <ul>
+                    <li>Sesiones individuales de terapia psicológica.</li>
+                    <li>Sesiones grupales de apoyo.</li>
+                    <li>Sesiones de seguimiento y evaluación.</li>
+                    <li>Sesiones de coordinación con familias y educadores.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="faq" id="faq">
+            <div class="container">
+                <h2 class="section-title">Preguntas Frecuentes</h2>
+                <div class="faq-item">
+                    <h3>¿Cómo puedo solicitar una cita?</h3>
+                    <p>Puedes solicitar una cita a través de nuestro formulario de contacto o llamando a nuestro teléfono.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>¿Qué métodos de pago aceptan?</h3>
+                    <p>Aceptamos pagos en efectivo, tarjeta de crédito y transferencia bancaria.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>¿Ofrecen servicios online?</h3>
+                    <p>Sí, ofrecemos sesiones online para aquellos que no pueden asistir presencialmente.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonials" id="testimonials">
+            <div class="container">
+                <h2 class="section-title">Testimonios</h2>
+                <div class="testimonial">
+                    <p>"Sólo puedo decir cosas positivas de ellas. Son un equipo de mujeres maravillosas, grandes profesionales y aún mejor personas. Atendieron con sensatez y escucharon con atención todas mis dudas, creo que pocas cosas asustan tanto como todo lo que afecta a nuestros hij@s, nos guiaron y nos ayudaron mucho. Ahora mi hijo y yo vemos los resultados de todo el trabajo que han hecho juntos. Feliz de haber encontrado a brújula en un momento donde estábamos perdidos ( le viene perfecto el nombre del gabinete)."</p>
+                    <h4>- Inés Arco Pérez</h4>
+                </div>
+                <div class="testimonial">
+                    <p>"Me alegro mucho de saber que tenéis una gran profesional en vuestro equipo. Gracias a la atención y ayuda de Olga nos cambió la vida a mi familia y a mi. Gracias"</p>
+                    <h4>- María Jose Aguilocho</h4>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact" id="contact">
+            <div class="container">
+                <h2 class="section-title">Contacto</h2>
+                <form action="#" method="post" class="contact-form">
+                    <input type="text" name="name" placeholder="Tu Nombre" required>
+                    <input type="email" name="email" placeholder="Tu Correo Electrónico" required>
+                    <textarea name="message" placeholder="Tu Mensaje" required></textarea>
+                    <button type="submit">Enviar</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Brújula Social</h3>
+                    <p>Teléfono: +34 672-057-038</p>
+                    <p>Email: brujulasocialgabinete@gmail.com</p>
+                    <div class="social-media">
+                        <a href="https://www.facebook.com/asociacionbrujula/"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/brujulagabinete/"><i class="fab fa-instagram"></i></a>
+                    </div>
+                    </div>
+                <div class="footer-section">
+                    <h3>Enlaces Rápidos</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Inicio</a></li>
+                        <li><a href="#about">Quiénes Somos</a></li>
+                        <li><a href="#services">Servicios</a></li>
+                        <li><a href="#activities">Actividades</a></li>
+                        <li><a href="#sessions">Sesiones</a></li>
+                        <li><a href="#faq">Preguntas Frecuentes</a></li>
+                        <li><a href="#testimonials">Testimonios</a></li>
+                        <li><a href="#contact">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Síguenos</h3>
+                        <p>Dirección: Av. de la Libertad, 11, Edificio América, local 16. El Puerto de Santa María, Cádiz</p>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3203.2243867990874!2d-6.243175323602105!3d36.59690447913205!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd0dd021d12e973f%3A0x7cb196deb8a21c90!2sAv.%20de%20la%20Libertad%2C%2011%2C%20local%2016%2C%2011500%20El%20Puerto%20de%20Sta%20Mar%C3%ADa%2C%20C%C3%A1diz!5e0!3m2!1ses!2ses!4v1738837013230!5m2!1ses!2ses" width="500" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Brújula Social. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
