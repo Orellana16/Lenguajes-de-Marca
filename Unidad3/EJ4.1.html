@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador de Pares e Impares</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        input {
+            padding: 5px;
+            margin: 5px 0;
+        }
+        button {
+            padding: 5px 10px;
+            margin: 5px 0;
+        }
+        .resultado {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Contador de Pares e Impares</h1>
+    <p>Introduce números:</p>
+    <input type="text" id="numeroInput" placeholder="Introduce un número">
+    <button onclick="agregarNumero()">Agregar</button>
+    <button onclick="mostrarResultado()">Terminar y Mostrar Resultado</button>
+
+    <div class="resultado">
+        <p id="arrayEntrada"></p>
+        <p id="contadorParesImpares"></p>
+    </div>
+
+    <script>
+        let numeros = [];
+
+        function agregarNumero() {
+            const input = document.getElementById('numeroInput').value.trim();
+            const numero = parseFloat(input);
+
+            if (isNaN(numero) || numero == 0) {
+                alert("Entrada no válida. Introduce un número válido.");
+                return;
+            }
+
+            numeros.push(numero);
+            document.getElementById('numeroInput').value = ''; // Limpiar el campo de entrada
+        }
+
+        function mostrarResultado() {
+            let pares = 0;
+            let impares = 0;
+
+            for (let numero of numeros) {
+                if (numero % 2 == 0) {
+                    pares++;
+                } else {
+                    impares++;
+                }
+            }
+
+            document.getElementById('arrayEntrada').textContent = `El array de entrada es: [${numeros.join(', ')}]`;
+            document.getElementById('contadorParesImpares').textContent = `Hay ${pares} números pares y ${impares} números impares.`;
+        }
+    </script>
+</body>
+</html>
