@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sumatorio, máximo, mínimo, multiplicación</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        input {
+            padding: 5px;
+            margin: 5px 0;
+        }
+        button {
+            padding: 5px 10px;
+            margin: 5px 0;
+        }
+        .resultado {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Operador de Números</h1>
+    <p>Introduce números:</p>
+    <input type="text" id="numeroInput" placeholder="Introduce un número">
+    <button onclick="agregarNumero()">Agregar</button>
+    <button onclick="mostrarResultado()">Terminar y Mostrar Resultado</button>
+
+    <div class="resultado">
+        <p id="arrayEntrada"></p>
+        <p id="sum"></p>
+        <p id="max"></p>
+        <p id="min"></p>
+        <p id="mul"></p>
+    </div>
+
+    <script>
+        let numeros = [];
+
+        function agregarNumero() {
+            const input = document.getElementById('numeroInput').value.trim();
+            const numero = parseFloat(input);
+
+            if (!isNaN(numero)) {
+                numeros.push(numero);
+                document.getElementById('numeroInput').value = ''; // Limpiar el campo de entrada
+            } else {
+                alert("Por favor, introduce un número válido.");
+            }
+        }
+
+        function mostrarResultado() {
+            if (numeros.length === 0) {
+                alert("No se han introducido números.");
+                return;
+            }
+
+            let sum = 0;
+            let min = numeros[0];
+            let max = numeros[0];
+            let mul = 1;
+
+            for (let numero of numeros) {
+                sum += numero;
+                if (numero < min) {
+                    min = numero;
+                }
+                if (numero > max) {
+                    max = numero;
+                }
+                mul *= numero;
+            }
+
+            document.getElementById('arrayEntrada').textContent = `El array de entrada es: [${numeros.join(', ')}]`;
+            document.getElementById('sum').textContent = `La suma de los números introducidos es ${sum}`;
+            document.getElementById('min').textContent = `El número más bajo de los introducidos es ${min}`;
+            document.getElementById('max').textContent = `El número más alto de los introducidos es ${max}`;
+            document.getElementById('mul').textContent = `La multiplicación de los números introducidos es ${mul}`;
+        }
+    </script>
+</body>
+</html>

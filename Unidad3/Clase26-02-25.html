@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sumatorio, máximo, mínimo, multiplicación</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        input {
+            padding: 5px;
+            margin: 5px 0;
+        }
+        button {
+            padding: 5px 10px;
+            margin: 5px 0;
+        }
+        .resultado {
+            margin-top: 20px;
+            font-weight: bold; 
+        }
+    </style>
+</head>
+<body>
+<script> //Funciones de objeto
+"use strict";
+
+let numeros = []; //Creacion del array para almacenar los numeros introducidos
+
+let Funciones = { //Creacion del objeto Funciones con todas las funciones
+    sumatorio: function(numeros) { //Funcion para sumar los numeros introducidos
+        let suma = 0;
+        for (let numero of numeros) {
+            suma += numero;
+        }
+        return suma;
+    },
+    maximo: function(numeros) { //Funcion para encontrar el numero maximo
+        let maximo = numeros[0];
+        for (let numero of numeros) {
+            if (numero > maximo) {
+                maximo = numero;
+            }
+        }
+        return maximo;
+    },
+    minimo: function(numeros) { //Funcion para encontrar el numero minimo
+        let minimo = numeros[0];
+        for (let numero of numeros) {
+            if (numero < minimo) {
+                minimo = numero;
+            }
+        }
+        return minimo;
+    },
+    multiplicacion: function(numeros) { //Funcion para encontrar la multiplicacion de los numeros introducidos
+        let multiplicacion = 1;
+        for (let numero of numeros) {
+            multiplicacion *= numero;
+        }
+        return multiplicacion;
+    },
+    agregarNumero: function() { //Funcion para agregar numeros
+        const input = document.getElementById('numeroInput').value.trim();
+        const numero = parseFloat(input);
+
+        if (!isNaN(numero)) { //If para limpiar el input y validar el numero
+            numeros.push(numero);
+            document.getElementById('numeroInput').value = '';
+        } else {
+            alert("Por favor, introduce un número válido.");
+        }
+    },
+    mostrarResultado: function(numero) { //Funcion para mostrar los resultados
+        if (numeros.length === 0) {
+            alert("No se han introducido números.");
+            return;
+        }
+    
+        //Declaracion de variables para los resultados
+        let sum = Funciones.sumatorio(numeros);
+        let max = Funciones.maximo(numeros);
+        let min = Funciones.minimo(numeros);
+        let mul = Funciones.multiplicacion(numeros);
+
+        //Mostrar los resultados
+        document.getElementById('arrayEntrada').textContent = `El array de entrada es: [${numeros.join(', ')}]`;
+        document.getElementById('sum').textContent = `La suma de los números introducidos es ${Funciones.sumatorio(numeros)}`;
+        document.getElementById('min').textContent = `El número más bajo de los introducidos es ${Funciones.minimo(numeros)}`;
+        document.getElementById('max').textContent = `El número más alto de los introducidos es ${Funciones.maximo(numeros)}`;
+        document.getElementById('mul').textContent = `La multiplicación de los números introducidos es ${Funciones.multiplicacion(numeros)}`;
+    }
+}
+</script>
+<h1>Operador de Números</h1>
+<p>Introduce números:</p>
+<input type="text" id="numeroInput" placeholder="Introduce un número">
+<button onclick="Funciones.agregarNumero()">Agregar</button>
+<button onclick="Funciones.mostrarResultado()">Terminar y Mostrar Resultado</button>
+
+<div class="resultado">
+    <p id="arrayEntrada"></p>
+    <p id="sum"></p>
+    <p id="max"></p>
+    <p id="min"></p>
+    <p id="mul"></p>
+</div>
+
+</script>
+</body>
+</html>
