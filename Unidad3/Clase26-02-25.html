@@ -58,6 +58,9 @@ let Funciones = { //Creacion del objeto Funciones con todas las funciones
     multiplicacion: function(numeros) { //Funcion para encontrar la multiplicacion de los numeros introducidos
         let multiplicacion = 1;
         for (let numero of numeros) {
+            if (numero == 0) {
+                return "Error: No se puede multiplicar por cero";
+            }
             multiplicacion *= numero;
         }
         return multiplicacion;
