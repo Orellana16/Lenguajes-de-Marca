@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <title>JQuery</title>
+</head>
+<body>
+<h1>Calculadora Aritmética</h1>
+<div class="calculadora">
+  <p>Introduce el primer número: 
+    <input type="number" class="numero1" step="any">
+  </p>
+  <p>Introduce el segundo número: 
+    <input type="number" class="numero2" step="any">
+  </p>
+  <p>Selecciona operación:
+    <select class="operacion">
+      <option value="sumar">Sumar (+)</option>
+      <option value="restar">Restar (-)</option>
+      <option value="multiplicar">Multiplicar (×)</option>
+      <option value="dividir">Dividir (÷)</option>
+    </select>
+  </p>
+  <button class="calcular">Calcular</button>
+  <div class="resultado" style="margin-top:20px; padding:10px; border:1px solid #ccc"></div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function(){
+    $(".calcular").click(function(){
+        const num1 = parseFloat($(".numero1").val());
+        const num2 = parseFloat($(".numero2").val());
+        const operacion = $(".operacion").val();
+        
+        let resultado;
+        let simbolo;
+        
+        switch(operacion) {
+            case 'sumar':
+                resultado = num1 + num2;
+                simbolo = '+';
+                break;
+            case 'restar':
+                resultado = num1 - num2;
+                simbolo = '-';
+                break;
+            case 'multiplicar':
+                resultado = num1 * num2;
+                simbolo = '×';
+                break;
+            case 'dividir':
+                if(num2 === 0) {
+                    $(".resultado").html("<p style='color:red'>Error: División por cero</p>");
+                    return;
+                }
+                resultado = num1 / num2;
+                simbolo = '÷';
+                break;
+            default:
+                resultado = 'Operación inválida';
+        }
+        
+        if(isNaN(num1) || isNaN(num2)) {
+            $(".resultado").html("<p style='color:red'>Error: Ingresa números válidos</p>");
+        } else {
+            $(".resultado").html(`
+                <p>Resultado: 
+                  ${num1} ${simbolo} ${num2} = 
+                  <strong>${resultado}</strong>
+                </p>
+            `);
+        }
+    });
+});
+</script>
+</body>
+</html>
