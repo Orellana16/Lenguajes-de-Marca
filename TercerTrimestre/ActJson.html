@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Empleados</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 0.5rem;
+    }
+    .seccion {
+      margin-bottom: 3rem;
+    }
+    /* Empleados */
+    .cartaEmpleado {
+      border: 1px solid #4a90e2;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border-radius: 8px;
+      box-shadow: 1px 1px 4px rgba(0,0,0,0.1);
+    }
+    .cartaEmpleado h3 {
+      margin-top: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="seccion">
+    <h1>Lista de Empleados</h1>
+    <div id="listaEmpleados"></div>
+  </div>
+
+  <script>
+    const jsonFile = 'ActJson2.json';
+    document.addEventListener('DOMContentLoaded', () => {
+      const contEmp = document.getElementById('listaEmpleados');
+  
+      fetch(jsonFile)
+        .then(response => {
+          if (!response.ok) throw new Error('Error al cargar el JSON');
+          return response.json();
+        })
+        .then(data => {
+          data.employees.forEach(emp => {
+            const card = document.createElement('div');
+            card.className = 'cartaEmpleado';
+            card.innerHTML = `<h3>${emp.name}</h3>  
+              <p><strong>Edad:</strong> ${emp.age}</p>
+              <p><strong>Cargo:</strong> ${emp.position}</p>
+              <p><strong>Departamento:</strong> ${emp.department}</p>
+              <p><strong>Salario:</strong> $${emp.salary}</p>
+              <p><strong>Ubicación:</strong> ${emp.location}</p>
+            `;
+            contEmp.appendChild(card);
+          });
+        })
+        .catch(error => {
+          contEmp.innerHTML = '<p>Error cargando los empleados.</p>';
+          console.error('Error:', error);
+        });
+    });
+  </script>  
+</body>
+</html>

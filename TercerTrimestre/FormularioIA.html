@@ -67,13 +67,11 @@
       cursor: pointer;
     }
 
-    /* Quitamos el display: none de aquí */
     #resultado {
       margin-top: 1.5rem;
       padding: 1rem;
       background: #fff;
       border-left: 4px solid #007acc;
-      /* ya no oculta por CSS */
       border-radius: 5px;
     }
 
@@ -127,7 +125,6 @@
     <button type="submit">Generar</button>
   </form>
 
-  <!-- Arrancamos oculto con la clase -->
   <div id="resultado" class="oculto">Resultado</div>
 
   <script>
@@ -143,29 +140,37 @@
         puertas: null
       };
 
-      document.querySelectorAll('.options').forEach(group => {
+      // Configura los botones de cada grupo
+      const groups = document.querySelectorAll('.options');
+      groups.forEach(group => {
         const groupName = group.dataset.group;
-        group.addEventListener('click', e => {
-          if (e.target.classList.contains('option-btn')) {
-            group.querySelectorAll('.option-btn').forEach(btn => btn.classList.remove('active'));
-            e.target.classList.add('active');
-            selections[groupName] = e.target.textContent;
-          }
+        const buttons = group.querySelectorAll('.option-btn');
+
+        buttons.forEach(btn => {
+          btn.addEventListener('click', function() {
+            // Desactiva todos y activa el clicado
+            buttons.forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            selections[groupName] = this.textContent;
+          });
         });
       });
 
+      // Cuando se envía el formulario
       form.addEventListener('submit', e => {
-        e.preventDefault();
+        e.preventDefault();  // <-- evita recarga de página
 
+        // Comprueba que todos los grupos tengan selección
         if (Object.values(selections).some(v => !v)) {
           alert("Por favor selecciona una opción para cada grupo.");
           return;
         }
 
+        // Desestructura para mensaje
         const { motor: m, transmision: t, traccion: tr, carroceria: c, puertas: p } = selections;
 
+        // Muestra el resultado y lo hace visible
         out.textContent = `✨ Quiero los 3 mejores coches que sean de motor ${m}, con transmisión ${t}, tracción ${tr}, carrocería tipo ${c} y ${p} puertas. 🚗`;
-        // Al eliminar la clase, se mostrará
         out.classList.remove('oculto');
       });
     });
