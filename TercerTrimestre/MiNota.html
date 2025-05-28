@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NOTA EXAMEN</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #f0f4f8;
+            margin: 0;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        h1 {
+            color: #003b5c;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        form {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        label {
+            font-weight: 600;
+            color: #003b5c;
+        }
+
+        input {
+            padding: 0.8rem;
+            border: 2px solid #e0e7ff;
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #007acc;
+        }
+
+        button {
+            background: #007acc;
+            color: white;
+            padding: 1rem;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background: #005d9c;
+        }
+
+        #resultado {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: #fff;
+            border-left: 4px solid #007acc;
+            border-radius: 6px;
+            width: 100%;
+            max-width: 600px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        #resultado.error {
+            border-left-color: #e63946;
+            color: #e63946;
+        }
+
+        .oculto {
+            display: none;
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 1rem;
+            }
+
+            form {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Calculadora de Matrícula Flexible</h1>
+
+    <form id="formulario">
+        <div class="form-group">
+            <label for="nota">Nota obtenida (0-10):</label>
+            <input type="number" id="nota" min="0" max="10" step="0.1" required>
+        </div>
+
+        <div class="form-group">
+            <label for="horas">Tiempo de entrega (horas):</label>
+            <input type="number" id="horas" min="0" step="1" required>
+            <small>Ingrese el tiempo en horas</small>
+        </div>
+
+        <button type="submit">Calcular nota corregida</button>
+    </form>
+
+    <div id="resultado" class="oculto"></div>
+
+    <script>
+        document.getElementById('formulario').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const resultado = document.getElementById('resultado');
+            resultado.classList.remove('error');
+            resultado.classList.add('oculto');
+
+            // Validar entradas
+            const nota = parseFloat(document.getElementById('nota').value);
+            const horas = parseInt(document.getElementById('horas').value);
+
+            if (isNaN(nota) || nota < 0 || nota > 10) {
+                resultado.textContent = "❌ La nota debe estar entre 0 y 10";
+                resultado.classList.add('error');
+                resultado.classList.remove('oculto');
+                return;
+            }
+
+            if (isNaN(horas) || horas < 0) {
+                resultado.textContent = "❌ El tiempo de entrega no puede ser negativo";
+                resultado.classList.add('error');
+                resultado.classList.remove('oculto');
+                return;
+            }
+
+            // Cálculos
+            const preguntasAcertadas = (nota * 27) / 10;
+            const preguntasFalladas = 27 - preguntasAcertadas;
+            let restaPorFallo = 0;
+
+            if (horas < 1) {
+                restaPorFallo = 0;
+            } else if (horas >= 1 && horas < 12) {
+                restaPorFallo = 0.1;
+            } else if (horas >= 12 && horas < 24) {
+                restaPorFallo = 0.2;
+            } else {
+                restaPorFallo = 0.3;
+            }
+
+            let notaCorrecta = nota - (preguntasFalladas * restaPorFallo);
+
+            // Aplicar penalización por tiempo (adicional a la resta por fallos)
+            let penalizacionTiempo = 0;
+            if (horas >= 24) {
+                penalizacionTiempo = 0.3;
+            } else if (horas >= 12) {
+                penalizacionTiempo = 0.2;
+            } else if (horas >= 1) {
+                penalizacionTiempo = 0.1;
+            }
+
+            notaCorrecta -= penalizacionTiempo;
+
+            // Asegurar nota mínima
+            notaCorrecta = Math.max(notaCorrecta, 0).toFixed(2);
+
+            // Mostrar resultados
+            let resultadoHTML = `
+                🎓 <strong>Resultado:</strong><br>
+                - Preguntas acertadas: ${preguntasAcertadas.toFixed(1)}<br>
+                - Resta por fallo: ${restaPorFallo.toFixed(1)} por fallo<br>
+            `;
+
+            if (penalizacionTiempo > 0) {
+                resultadoHTML += `- Penalización por tiempo: ${horas}h (-${penalizacionTiempo.toFixed(1)})<br>`;
+            } else {
+                resultadoHTML += `- Tiempo de entrega: ${horas}h<br>`;
+            }
+
+            resultadoHTML += `- Nota final: <strong>${notaCorrecta}</strong>`;
+
+            // Resaltar si hay penalización máxima por tiempo
+            if (horas >= 24) {
+                resultadoHTML += '<br>⚠️ Entregaste fuera del plazo establecido';
+            }
+
+            resultado.innerHTML = resultadoHTML;
+            resultado.classList.remove('oculto');
+        });
+    </script>
+</body>
+</html>
